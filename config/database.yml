@@ -14,7 +14,7 @@ default: &default
   encoding: utf8
   pool: 5
   username: dodget
-  password: password
+  password: 2Boston!
   socket: /var/run/mysqld/mysqld.sock
 
 development:
