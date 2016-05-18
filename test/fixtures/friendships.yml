@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  plant_id: 1
+  friend_id: 1
+  create: MyString
+  destroy: MyString
+
+two:
+  plant_id: 1
+  friend_id: 1
+  create: MyString
+  destroy: MyString

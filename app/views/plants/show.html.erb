@@ -1,9 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<h1>
   <strong>Name:</strong>
   <%= @plant.name %>
-</p>
+</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @friends.each do |friend| %>
+      <tr>
+        <td><%= friend.name %></td>
+        <td><%= link_to 'Add Friend' %></td>-
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_plant_path(@plant) %> |
 <%= link_to 'Back', plants_path %>
