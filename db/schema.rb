@@ -11,15 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160518012125) do
+ActiveRecord::Schema.define(version: 20160519213125) do
 
   create_table "friendships", force: :cascade do |t|
     t.integer  "plant_id",   limit: 4
     t.integer  "friend_id",  limit: 4
-    t.string   "create",     limit: 255
-    t.string   "destroy",    limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
   create_table "plants", force: :cascade do |t|

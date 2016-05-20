@@ -5,6 +5,18 @@
   <%= @plant.name %>
 </h1>
 
+
+<h2>
+  <strong>Friends:</strong>
+  <% for friendship in @plant.friendships %>
+    <li>
+      <%=h friendship.friend.name %>
+
+    </li>
+    <% end %>
+</h2>
+
+
 <table>
   <thead>
     <tr>
@@ -15,10 +27,16 @@
 
   <tbody>
     <% @friends.each do |friend| %>
-      <tr>
-        <td><%= friend.name %></td>
-        <td><%= link_to 'Add Friend' %></td>-
-      </tr>
+      <% if (@plant.name != friend.name) %>
+
+
+          <tr>
+            <td><%= friend.name %></td>
+            <td><%= link_to 'Add Friend', friendships_path(:plant => @plant, :friend => friend.id), :method => :post %></td>-
+          </tr>
+
+        
+      <% end %>
     <% end %>
   </tbody>
 </table>

@@ -11,6 +11,10 @@ class PlantsController < ApplicationController
   # GET /plants/1.json
   def show
     @friends = Plant.all
+    #def check_friendship(:plant, :friend)
+    #  return (Friendship.exists?(:plant, :friend))
+    #end
+
   end
 
   # GET /plants/new
