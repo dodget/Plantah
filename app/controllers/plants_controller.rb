@@ -1,5 +1,9 @@
 class PlantsController < ApplicationController
+
+
   before_action :set_plant, only: [:show, :edit, :update, :destroy]
+
+
 
   # GET /plants
   # GET /plants.json
@@ -10,10 +14,8 @@ class PlantsController < ApplicationController
   # GET /plants/1
   # GET /plants/1.json
   def show
-    @friends = Plant.all
-    #def check_friendship(:plant, :friend)
-    #  return (Friendship.exists?(:plant, :friend))
-    #end
+    @potential_friends = Plant.all
+
 
   end
 

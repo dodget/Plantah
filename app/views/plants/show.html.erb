@@ -26,13 +26,14 @@
   </thead>
 
   <tbody>
-    <% @friends.each do |potnential_friend| %>
-      <% if (@plant.name != potnential_friend.name) %>
-        <% if (@plant.friendships.exists?(potnential_friend) == false)%>
+    <% @potential_friends.each do |potential_friend| %>
+
+      <% if (@plant.name != potential_friend.name) %>
+        <% if (!@plant.friendships.exists?(:friend => potential_friend.id)) %>
 
           <tr>
-            <td><%= potnential_friend.name %></td>
-            <td><%= link_to 'Add Friend', friendships_path(:plant => @plant, :friend => potnential_friend.id), :method => :post %></td>
+            <td><%= potential_friend.name %></td>
+            <td><%= link_to 'Add Friend', friendships_path(:plant => @plant, :friend => potential_friend.id), :method => :post %></td>
           </tr>
 
         <% end %>
