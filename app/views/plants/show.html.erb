@@ -11,6 +11,8 @@
   <% for friendship in @plant.friendships %>
     <li>
       <%=h friendship.friend.name %>
+      <%= friendship.id %>
+      <%= link_to 'Remove Friend', friendship_path(:friend_id => friendship.friend.id), :method => :delete %>
 
     </li>
     <% end %>

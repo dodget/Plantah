@@ -15,8 +15,6 @@ class PlantsController < ApplicationController
   # GET /plants/1.json
   def show
     @potential_friends = Plant.all
-
-
   end
 
   # GET /plants/new
