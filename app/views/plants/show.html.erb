@@ -6,43 +6,37 @@
 </h1>
 
 
-<h2>
-  <strong>Friends:</strong>
+<h2>Friends</h2>
+<ul>
   <% for friendship in @plant.friendships %>
     <li>
       <%=h friendship.friend.name %>
-      <%= friendship.id %>
       <%= link_to 'Remove Friend', friendship_path(:friend_id => friendship.friend.id), :method => :delete %>
-
     </li>
-    <% end %>
-</h2>
+  <% end %>
+
+  <% for plant in @plant.inverse_friends %>
+    <li><%=h plant.name %></li>
+  <% end %>
+
+</ul>
 
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @potential_friends.each do |potential_friend| %>
-
-      <% if (@plant.name != potential_friend.name) %>
-        <% if (!@plant.friendships.exists?(:friend => potential_friend.id)) %>
-
-          <tr>
-            <td><%= potential_friend.name %></td>
-            <td><%= link_to 'Add Friend', friendships_path(:plant => @plant, :friend => potential_friend.id), :method => :post %></td>
-          </tr>
-
-        <% end %>
+<h2>Plants</h2>
+<ul>
+  <% @potential_friends.each do |potential_friend| %>
+    <% if (@plant.name != potential_friend.name) %>
+      <% if (!@plant.friendships.exists?(:friend => potential_friend.id)) %>
+        <li>
+          <td><%= potential_friend.name %></td>
+          <td><%= link_to 'Add Friend', friendships_path(:plant => @plant, :friend => potential_friend.id), :method => :post %></td>
+        </li>
       <% end %>
     <% end %>
-  </tbody>
-</table>
+  <% end %>
+</ul>
+
 
 <%= link_to 'Edit', edit_plant_path(@plant) %> |
 <%= link_to 'Back', plants_path %>
