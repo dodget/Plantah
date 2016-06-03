@@ -8,10 +8,10 @@ class FriendshipsController < ApplicationController
     @friendship = @plant.friendships.build(:friend_id => params[:friend])
       if @friendship.save
         flash[:notice] = "added friend"
-        redirect_to root_path
+        redirect_to request.referrer
       else
         flash[:error] = "Unable to add friend."
-        redirect_to root_path
+        redirect_to request.referer
       end
   end
 
@@ -24,10 +24,10 @@ class FriendshipsController < ApplicationController
     #Friendship.where(plant_id: params[:id], friend_id: params[:friend_id]).destroy
     if @friendship.destroy
       flash[:notice] = "Removed friendship."
-      redirect_to root_path
+      redirect_to request.referrer
     else
       flash[:error] = "Unable to remove friend"
-      redirect_to root_path
+      redirect_to request.referrer
     end
   end
 
