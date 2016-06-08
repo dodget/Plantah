@@ -23,6 +23,23 @@
 
 </ul>
 
+<h2>Enemies</h2>
+<ul>
+  <% for antagonism in @plant.antagonisms %>
+    <li>
+      <%=h antagonism.antagonist.name %>
+      <%= link_to 'Remove Enemy', antagonism_path(:antagonist_id => antagonism.antagonist.id, :sich => 1), :method => :delete %>
+    </li>
+  <% end %>
+
+  <% for plant in @plant.inverse_antagonists %>
+    <li>
+      <%=h plant.name %>
+    </li>
+  <% end %>
+
+</ul>
+
 
 
 <h2>Plants</h2>
@@ -32,8 +49,9 @@
       <% if (!@plant.friendships.exists?(:friend => potential_friend.id)) %>
         <% if (!@plant.inverse_friends.exists?(potential_friend.id))%>
           <li>
-            <td><%= potential_friend.name %></td>
-            <td><%= link_to 'Add Friend', friendships_path(:plant => @plant, :friend => potential_friend.id), :method => :post %></td>
+            <%= potential_friend.name %>
+            <%= link_to 'Add Friend', friendships_path(:plant => @plant, :friend => potential_friend.id), :method => :post %>
+            <%= link_to 'Add Antagonist', antagonisms_path(:plant => @plant, :antagonist => potential_friend.id), :method => :post %>
           </li>
         <% end %>
       <% end %>
