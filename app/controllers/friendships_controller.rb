@@ -19,9 +19,10 @@ class FriendshipsController < ApplicationController
   # DELETE /friendships/1
   # DELETE /friendships/1.json
   def destroy
+
     @plant = Plant.find(params[:id])
     @friendship = @plant.friendships.find_by_friend_id(params[:friend_id])
-    #Friendship.where(plant_id: params[:id], friend_id: params[:friend_id]).destroy
+
     if @friendship.destroy
       flash[:notice] = "Removed friendship."
       redirect_to request.referrer

@@ -11,12 +11,14 @@
   <% for friendship in @plant.friendships %>
     <li>
       <%=h friendship.friend.name %>
-      <%= link_to 'Remove Friend', friendship_path(:friend_id => friendship.friend.id), :method => :delete %>
+      <%= link_to 'Remove Friend', friendship_path(:friend_id => friendship.friend.id, :sich => 1), :method => :delete %>
     </li>
   <% end %>
 
   <% for plant in @plant.inverse_friends %>
-    <li><%=h plant.name %></li>
+    <li>
+      <%=h plant.name %>
+    </li>
   <% end %>
 
 </ul>
