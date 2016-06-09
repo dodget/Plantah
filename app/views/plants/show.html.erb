@@ -47,12 +47,16 @@
   <% @potential_friends.each do |potential_friend| %>
     <% if (@plant.name != potential_friend.name) %>
       <% if (!@plant.friendships.exists?(:friend => potential_friend.id)) %>
-        <% if (!@plant.inverse_friends.exists?(potential_friend.id))%>
-          <li>
-            <%= potential_friend.name %>
-            <%= link_to 'Add Friend', friendships_path(:plant => @plant, :friend => potential_friend.id), :method => :post %>
-            <%= link_to 'Add Antagonist', antagonisms_path(:plant => @plant, :antagonist => potential_friend.id), :method => :post %>
-          </li>
+        <% if (!@plant.antagonisms.exists?(:antagonist => potential_friend.id)) %>
+          <% if (!@plant.inverse_antagonists.exists?(potential_friend.id)) %>
+            <% if (!@plant.inverse_friends.exists?(potential_friend.id)) %>
+              <li>
+                <%= potential_friend.name %>
+                <%= link_to 'Add Friend', friendships_path(:plant => @plant, :friend => potential_friend.id), :method => :post %>
+                <%= link_to 'Add Antagonist', antagonisms_path(:plant => @plant, :antagonist => potential_friend.id), :method => :post %>
+              </li>
+            <% end %>
+          <% end %>
         <% end %>
       <% end %>
     <% end %>
