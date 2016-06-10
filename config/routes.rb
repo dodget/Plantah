@@ -1,16 +1,23 @@
 Rails.application.routes.draw do
-  #get 'antagonism/create'
 
-  #get 'antagonism/destroy'
+
+
+
+
+  devise_for :users
   resources :antagonisms
   resources :friendships
   resources :plants
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'plants#index'
+
+
+  
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
