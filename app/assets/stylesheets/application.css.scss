@@ -10,8 +10,32 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
- *= require_self
- */
 
+ */
+ @import "bootstrap-sprockets";
  @import "bootstrap";
+
+$tan: #d1d186;
+$blue: #516959;
+$green: #1b2920;
+$orange: #9c4e33;
+$red: #d17d54;
+$pink: #e3c4a4;
+
+body{
+  //background-color: $tan;
+}
+
+.navbar{
+  background-color: $red;
+
+  margin-bottom: 0;
+}
+
+.navbar .nav > li > a {
+  color: white;
+}
+
+.navbar .navbar-brand{
+  color: white;
+}

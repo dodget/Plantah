@@ -7,16 +7,34 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="navbar navbar-default navbar-static-top">
+    <div class="fluid-container">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="navbar-toggle" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand">planTit</a>
+        </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#plants">Plants</a></li>
+              <li><a href="#projects">About planTit</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<<<<<<< HEAD
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
   <% if user_signed_in? %>
     <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
   <% end %>
-=======
 
->>>>>>> style
+
 <%= yield %>
 
 
