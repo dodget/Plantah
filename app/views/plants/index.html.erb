@@ -1,25 +1,34 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Plants</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h1 class="text-center">Pick Your Plant</h1>
+    </div>
+  </div>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @plants.each do |plant| %>
-      <tr>
-        <td><%= link_to plant.name, plant %></td>
-        <td><%= link_to 'Edit', edit_plant_path(plant) %></td>
-        <td><%= link_to 'Destroy', plant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3">
+      <ul class="list-group list-inline">
+        <% @plants.each do |plant| %>
+
+            <li class="list-group-item">
+              <%= link_to plant.name, plant %>
+              <% if user_signed_in? %>
+                <%= link_to 'Edit', edit_plant_path(plant) %>
+                <%= link_to 'Destroy', plant, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %>
+            </li>
+
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
 
 <br>
 
