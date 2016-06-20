@@ -40,8 +40,21 @@ body{
   color: white;
 }
 
-.list-group-item{
+#index-ul {
+  background-color: $tan;
+  margin-top: 20px;
+  border-radius: 7px;
+}
 
-  margin: 10px;
-  background-color: $pink;
+.list-group-item{
+  margin: 20px;
+  background-color: $blue;
+  border-radius: 5px;
+  border-color: $tan;
+}
+
+.list-group-item a {
+  padding: 25px;
+  font-size: 22px;
+  color: white;
 }
