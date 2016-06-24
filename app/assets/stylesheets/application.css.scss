@@ -1,34 +1,34 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any styles
- * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
- * file per style scope.
- *
-
- */
- @import "bootstrap-sprockets";
- @import "bootstrap";
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 $tan: #d1d186;
 $blue: #516959;
-$green: #1b2920;
+$green: #2f4838;
 $orange: #9c4e33;
 $red: #d17d54;
+$light_red: #e8bea9;
 $pink: #e3c4a4;
 
 body{
-  //background-color: $tan;
+  //background-color: $light_red;
+}
+
+.jumbotron{
+  position: relative;
+  //background: image-url('bean.JPG') no-repeat center center;
+  //background-color: $blue;
+  background: radial-gradient(at bottom, $blue, $green);
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 5px;
+  color: white;
 }
 
 .navbar{
   background-color: $red;
-
   margin-bottom: 0;
 }
 
@@ -40,9 +40,9 @@ body{
   color: white;
 }
 
-#index-ul {
-  background-color: $tan;
-  margin-top: 20px;
+.container .plant-list {
+  //background-color: $pink;
+  margin-top: 30px;
   border-radius: 7px;
 }
 
@@ -50,11 +50,16 @@ body{
   margin: 20px;
   background-color: $blue;
   border-radius: 5px;
-  border-color: $tan;
+  //border-color: $pink;
 }
 
 .list-group-item a {
   padding: 25px;
-  font-size: 22px;
+  font-size: 18px;
+  color: white;
+}
+
+#indexSearch{
+  background-color: $red;
   color: white;
 }
