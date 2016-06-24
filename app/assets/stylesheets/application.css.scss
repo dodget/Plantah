@@ -59,7 +59,20 @@ body{
   color: white;
 }
 
+
+//button which enables search on index jumbotron
 #indexSearch{
+  background-color: $red;
+  color: white;
+}
+
+
+//to help with animations
+#search{
+  display: none;
+}
+
+#button{
   background-color: $red;
   color: white;
 }

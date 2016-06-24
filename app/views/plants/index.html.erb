@@ -1,10 +1,29 @@
 
 <div class="container">
   <div class="jumbotron">
-
+    <!-- intial jumbotron phrase -->
+    <div id="jumbotron-phrase">
       <h1 class="text-center">Pick Your Plant</h1>
       <p>or</p>
       <button class="btn btn-lg" id="indexSearch">Search</button>
+    </div>
+
+    <!-- hidden content to be revealed on button press -->
+    <div id="search">
+      <div class="row">
+        <div class="col-sm-4 col-sm-offset-4" id="form">
+          <form>
+            <fieldset class="form-group">
+              <label for="plantSearch"><h2>Let's find it</h2></label>
+              <input type="text" class="form-control" id="search-box" placeholder="search our plant list">
+              <small class="text-muted">Let's check it out.</small>
+            </fieldset>
+          </form>
+          <button type="submit" class="btn" id="button">search</button>
+        </div>
+      </div>
+    </div>
+
 
   </div>
 </div>
