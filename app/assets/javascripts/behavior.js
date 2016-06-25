@@ -16,5 +16,5 @@ function transformSearch1(){
   $('#jumbotron-phrase').slideUp();
   setTimeout(function(){
     $('#search').slideDown();
-  }, 1000)
+  }, 850)
 }
