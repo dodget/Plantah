@@ -8,70 +8,81 @@
   </div>
 </div>
 
-
-<h2>Friends</h2>
-<ul>
-  <% for friendship in @plant.friendships %>
-    <li>
-      <%=h friendship.friend.name %>
-      <% if user_signed_in? %>
-        <%= link_to 'Remove Friend', friendship_path(:friend_id => friendship.friend.id, :sich => 1), :method => :delete %>
-      <% end %>
-    </li>
-  <% end %>
-
-  <% for plant in @plant.inverse_friends %>
-    <li>
-      <%=h plant.name %>
-    </li>
-  <% end %>
-
-</ul>
-
-<h2>Enemies</h2>
-<ul>
-  <% for antagonism in @plant.antagonisms %>
-    <li>
-      <%=h antagonism.antagonist.name %>
-      <% if user_signed_in? %>
-        <%= link_to 'Remove Enemy', antagonism_path(:antagonist_id => antagonism.antagonist.id, :sich => 1), :method => :delete %>
-      <% end %>
-    </li>
-  <% end %>
-
-  <% for plant in @plant.inverse_antagonists %>
-    <li>
-      <%=h plant.name %>
-    </li>
-  <% end %>
-
-</ul>
+<div class="container">
+  <div class="row text-center">
 
 
+    <div class="col-md-6">
+      <h2>Friends</h2>
+      <ul class="list-group list-inline text-center">
+        <% for friendship in @plant.friendships %>
+          <li class="list-group-item">
+            <%= link_to friendship.friend.name, friendship.friend %>
+            <% if user_signed_in? %>
+              <%= link_to 'Remove Friend', friendship_path(:friend_id => friendship.friend.id, :sich => 1), :method => :delete %>
+            <% end %>
+          </li>
+        <% end %>
 
-<h2>Plants</h2>
-<ul>
-  <% @potential_friends.each do |potential_friend| %>
-    <% if (@plant.name != potential_friend.name) %>
-      <% if (!@plant.friendships.exists?(:friend => potential_friend.id)) %>
-        <% if (!@plant.antagonisms.exists?(:antagonist => potential_friend.id)) %>
-          <% if (!@plant.inverse_antagonists.exists?(potential_friend.id)) %>
-            <% if (!@plant.inverse_friends.exists?(potential_friend.id)) %>
-              <li>
-                <%= potential_friend.name %>
-                <% if user_signed_in? %>
-                  <%= link_to 'Add Friend', friendships_path(:plant => @plant, :friend => potential_friend.id), :method => :post %>
-                  <%= link_to 'Add Antagonist', antagonisms_path(:plant => @plant, :antagonist => potential_friend.id), :method => :post %>
-                <% end %>
-              </li>
+        <% for plant in @plant.inverse_friends %>
+          <li class="list-group-item">
+            <%= link_to plant.name, plant %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="col-md-6">
+      <h2>Enemies</h2>
+      <ul class="list-group list-inline text-center">
+        <% for antagonism in @plant.antagonisms %>
+          <li class="list-group-item">
+            <%= link_to antagonism.antagonist.name, antagonism.antagonist %>
+            <% if user_signed_in? %>
+              <%= link_to 'Remove Enemy', antagonism_path(:antagonist_id => antagonism.antagonist.id, :sich => 1), :method => :delete %>
+            <% end %>
+          </li>
+        <% end %>
+
+        <% for plant in @plant.inverse_antagonists %>
+          <li class="list-group-item">
+            <%= link_to plant.name, plant %>
+          </li>
+        <% end %>
+
+      </ul>
+    </div>
+
+    </div> <!-- row -->
+</div><!-- container -->
+
+
+<% if user_signed_in? %>
+  <h2>Plants</h2>
+  <ul>
+    <% @potential_friends.each do |potential_friend| %>
+      <% if (@plant.name != potential_friend.name) %>
+        <% if (!@plant.friendships.exists?(:friend => potential_friend.id)) %>
+          <% if (!@plant.antagonisms.exists?(:antagonist => potential_friend.id)) %>
+            <% if (!@plant.inverse_antagonists.exists?(potential_friend.id)) %>
+              <% if (!@plant.inverse_friends.exists?(potential_friend.id)) %>
+                <li>
+                  <%= potential_friend.name %>
+                  <% if user_signed_in? %>
+                    <%= link_to 'Add Friend', friendships_path(:plant => @plant, :friend => potential_friend.id), :method => :post %>
+                    <%= link_to 'Add Antagonist', antagonisms_path(:plant => @plant, :antagonist => potential_friend.id), :method => :post %>
+                  <% end %>
+                </li>
+              <% end %>
             <% end %>
           <% end %>
         <% end %>
       <% end %>
     <% end %>
-  <% end %>
-</ul>
+  </ul>
 
 
-<%= link_to 'Edit', edit_plant_path(@plant) %> |
-<%= link_to 'Back', plants_path %>
+  <%= link_to 'Edit', edit_plant_path(@plant) %> |
+  <%= link_to 'Back', plants_path %>
+
+<% end %>
