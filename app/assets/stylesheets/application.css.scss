@@ -76,3 +76,33 @@ body{
   background-color: $red;
   color: white;
 }
+
+.plant-name-box{
+  //background-color: $pink;
+  color: $green;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 7px;
+}
+
+.plant-name-box h1 {
+  font-size: 65px;
+}
+
+.plant-info h3, .plant-info p {
+  display: inline;
+
+}
+
+.plant-info{
+    padding: 10px;
+}
+
+.plant-info p {
+  font-size: 20px;
+  font-weight: bold;
+  
+}
+.plant-info-box{
+  background-color: $light_red;
+}
