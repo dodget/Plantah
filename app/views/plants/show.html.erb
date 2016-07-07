@@ -1,11 +1,54 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container">
-  <div class="jumbotron">
-    <h1>
-      <%= @plant.name %>
-    </h1>
+    <div class="row">
+
+      <!-- plant name -->
+      <div class="col-md-3 col-md-offset-2">
+        <div class="plant-name-box text-center">
+          <h1><%= @plant.name %></h1>
+        </div>
+      </div>
+
+
+
+    </div><!-- end of row -->
+
+
+      <!-- general plant info -->
+
+    <div class="row">
+
+      <div class="col-md-3 col-md-offset-5">
+        <div class="plant-info-box">
+          <div class="row">
+            <div class="plant-info">
+              <h3>Type:</h3>
+              <p>   <%= @plant.family %></p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="plant-info">
+              <h3>Sun:</h3>
+              <p>   <%= @plant.sun %></p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="plant-info">
+              <h3>Spacing:</h3>
+              <p>   <%= @plant.spacing %></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      </div>
+    </div> <!-- end of row -->
+
+
   </div>
+
 </div>
 
 <div class="container">
