@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Yeseva+One);
+@import url(https://fonts.googleapis.com/css?family=Hammersmith+One);
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -57,6 +59,7 @@ body{
   padding: 25px;
   font-size: 18px;
   color: white;
+  font-family: 'Hammersmith One', sans-serif;
 }
 
 
@@ -77,34 +80,51 @@ body{
   color: white;
 }
 
-.plant-name-box{
-  //background-color: $pink;
-  color: $green;
-  padding: 10px;
-  margin: 10px;
-  border-radius: 7px;
-}
-
-.plant-name-box h1 {
-  font-size: 65px;
-}
-
-.plant-info h3, .plant-info p {
-  display: inline;
-
-}
 
 .plant-info{
     padding: 10px;
 }
 
-.plant-info p {
-  font-size: 20px;
-  font-weight: bold;
+.plantShow{
+  background-color: #f5f5f5;
+  height: 100%;
+}
+
+.plantShow h1{
   color: $green;
+  //font-weight: bold;
+  font-family: 'Hammersmith One', sans-serif;
 }
-.plant-info-box{
-  background-color: #d8906d;
-  padding: 15px;
-  border-radius: 7px;
+
+.plantStats h2, .plantStats p {
+  display: inline;
 }
+
+.plantStats h2{
+  font-family: 'Yeseva One', cursive;
+  color: #d17d54;
+}
+
+.plantStats p{
+  font-size: 20px;
+  //font-weight: bold;
+  color: $green;
+  font-family: 'Hammersmith One', sans-serif;
+}
+
+.row.content{
+  height: 1500px;
+}
+
+.showListTitle{
+  border-bottom: 3px solid $red;
+  font-family: 'Yeseva One', cursive;
+}
+
+@media screen and (max-width: 767px) {
+      .plantShow {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height: auto;}
+    }

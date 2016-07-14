@@ -1,103 +1,108 @@
-<p id="notice"><%= notice %></p>
 
-<div class="container">
-    <div class="row">
 
-      <!-- plant name -->
-      <div class="col-md-3 col-md-offset-2">
-        <div class="plant-name-box text-center">
-          <h1><%= @plant.name %></h1>
+
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-3 plantShow">
+      <h1><%= @plant.name %></h1>
+
+      
+         <div class="col-sm-offset-1">
+           <br>
+           <div class="plantStats">
+             <h2>Type:</h2>
+             <p><%= @plant.family %></p>
+           </div>
+           <br>
+           <div class="plantStats">
+             <h2>Sun:</h2>
+             <p><%= @plant.sun %></p>
+           </div>
+           <br>
+           <div class="plantStats">
+             <h2>Spacing:</h2>
+             <p> <%= @plant.spacing %></p>
+           </div>
+        </div>
+
+
+
+    </div>
+
+
+
+    <!-- friends and enemies info here -->
+
+    <div class="col-sm-9">
+
+      <br>
+      <br>
+      <br>
+      <div class="row">
+
+      <!-- companions -->
+      <div class="col-sm-6">
+
+        <h2 class="showListTitle">Friends</h2>
+        <div class="col-sm-offset-1">
+          <ul class="list-group list-inline text-center">
+            <% for friendship in @plant.friendships %>
+              <li class="list-group-item">
+                <%= link_to friendship.friend.name, friendship.friend %>
+                <% if user_signed_in? %>
+                  <%= link_to 'Remove Friend', friendship_path(:friend_id => friendship.friend.id, :sich => 1), :method => :delete %>
+                <% end %>
+              </li>
+            <% end %>
+
+            <% for plant in @plant.inverse_friends %>
+              <li class="list-group-item">
+                <%= link_to plant.name, plant %>
+              </li>
+            <% end %>
+          </ul>
         </div>
       </div>
 
+      <!-- antagonists -->
+      <div class="col-sm-6">
 
+        <h2 class="showListTitle">Enemies</h2>
+        <div class="col-sm-offset-1">
+          <ul class="list-group list-inline text-center">
+            <% for antagonism in @plant.antagonisms %>
+              <li class="list-group-item">
+                <%= link_to antagonism.antagonist.name, antagonism.antagonist %>
+                <% if user_signed_in? %>
+                  <%= link_to 'Remove Enemy', antagonism_path(:antagonist_id => antagonism.antagonist.id, :sich => 1), :method => :delete %>
+                <% end %>
+              </li>
+            <% end %>
 
-    </div><!-- end of row -->
-
-
-      <!-- general plant info -->
-
-    <div class="row">
-
-      <div class="col-md-3 col-md-offset-6">
-        <div class="plant-info-box">
-          <div class="row">
-            <div class="plant-info">
-              <h3>Type:</h3>
-              <p>   <%= @plant.family %></p>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="plant-info">
-              <h3>Sun:</h3>
-              <p>   <%= @plant.sun %></p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="plant-info">
-              <h3>Spacing:</h3>
-              <p>   <%= @plant.spacing %></p>
-            </div>
-          </div>
-
+            <% for plant in @plant.inverse_antagonists %>
+              <li class="list-group-item">
+                <%= link_to plant.name, plant %>
+              </li>
+            <% end %>
         </div>
-      </div>
-      </div>
-    </div> <!-- end of row -->
 
+
+      </div>
+
+    </div>
+    </div> <!-- end of friends and enemies info -->
 
   </div>
-
 </div>
 
-<div class="container">
-  <div class="row text-center">
 
 
-    <div class="col-md-6">
-      <h2>Friends</h2>
-      <ul class="list-group list-inline text-center">
-        <% for friendship in @plant.friendships %>
-          <li class="list-group-item">
-            <%= link_to friendship.friend.name, friendship.friend %>
-            <% if user_signed_in? %>
-              <%= link_to 'Remove Friend', friendship_path(:friend_id => friendship.friend.id, :sich => 1), :method => :delete %>
-            <% end %>
-          </li>
-        <% end %>
 
-        <% for plant in @plant.inverse_friends %>
-          <li class="list-group-item">
-            <%= link_to plant.name, plant %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
 
-    <div class="col-md-6">
-      <h2>Enemies</h2>
-      <ul class="list-group list-inline text-center">
-        <% for antagonism in @plant.antagonisms %>
-          <li class="list-group-item">
-            <%= link_to antagonism.antagonist.name, antagonism.antagonist %>
-            <% if user_signed_in? %>
-              <%= link_to 'Remove Enemy', antagonism_path(:antagonist_id => antagonism.antagonist.id, :sich => 1), :method => :delete %>
-            <% end %>
-          </li>
-        <% end %>
 
-        <% for plant in @plant.inverse_antagonists %>
-          <li class="list-group-item">
-            <%= link_to plant.name, plant %>
-          </li>
-        <% end %>
 
-      </ul>
-    </div>
-
-    </div> <!-- row -->
-</div><!-- container -->
+<!-- end of added in content -->
 
 
 <% if user_signed_in? %>
@@ -127,5 +132,6 @@
 
   <%= link_to 'Edit', edit_plant_path(@plant) %> |
   <%= link_to 'Back', plants_path %>
+  <p id="notice"><%= notice %></p>
 
 <% end %>
