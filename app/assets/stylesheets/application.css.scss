@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Yeseva+One);
+@import url(https://fonts.googleapis.com/css?family=Voces);
 @import url(https://fonts.googleapis.com/css?family=Hammersmith+One);
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -101,7 +101,7 @@ body{
 }
 
 .plantStats h2{
-  font-family: 'Yeseva One', cursive;
+  font-family: 'Voces', cursive;
   color: #d17d54;
 }
 
@@ -118,7 +118,35 @@ body{
 
 .showListTitle{
   border-bottom: 3px solid $red;
-  font-family: 'Yeseva One', cursive;
+  font-family: 'Voces', cursive;
+}
+
+
+//about page styling below
+
+.page-header {
+  padding-bottom: 17px;
+  border-bottom: 3px solid #d17d54;
+}
+
+.page-header h1, .page-header p{
+  color: #2f4838;
+  font-family: 'Voces', cursive;
+}
+
+.page-header p {
+  font-size: 15px;
+}
+
+.container-content h2{
+  color: #2f4838;
+  font-family: 'Voces', cursive;
+  border-bottom: 2px solid #d17d54;
+  padding-bottom: 6px;
+}
+
+.container-content{
+  padding-bottom: 35px;
 }
 
 @media screen and (max-width: 767px) {
