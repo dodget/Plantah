@@ -113,7 +113,7 @@ body{
 }
 
 .row.content{
-  height: 1500px;
+  height: 750px;
 }
 
 .showListTitle{
@@ -126,11 +126,11 @@ body{
 
 .page-header {
   padding-bottom: 17px;
-  border-bottom: 3px solid #d17d54;
+  border-bottom: 3px solid $red;
 }
 
 .page-header h1, .page-header p{
-  color: #2f4838;
+  color: $green;
   font-family: 'Voces', cursive;
 }
 
@@ -139,9 +139,9 @@ body{
 }
 
 .container-content h2{
-  color: #2f4838;
+  color: $green;
   font-family: 'Voces', cursive;
-  border-bottom: 2px solid #d17d54;
+  border-bottom: 2px solid $red;
   padding-bottom: 6px;
 }
 
