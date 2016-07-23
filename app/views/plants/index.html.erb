@@ -23,7 +23,7 @@
               <small class="text-muted">Let's check it out.</small>
             </fieldset>
           </form>
-          <button type="submit" class="btn" id="button">search</button>
+          <br>
         </div>
       </div>
     </div>
@@ -57,5 +57,6 @@
 </div>
 
 <br>
-
-<%= link_to 'New Plant', new_plant_path %>
+<% if user_signed_in? %>
+  <%= link_to 'New Plant', new_plant_path %>
+<% end %>

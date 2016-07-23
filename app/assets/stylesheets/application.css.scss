@@ -149,6 +149,16 @@ body{
   padding-bottom: 35px;
 }
 
+.about_image_style{
+  border: 1px solid $green;
+  border-radius: 50%;
+}
+
+.portrait p{
+  font-family: 'Hammersmith One', sans-serif;
+  color: $green;
+}
+
 @media screen and (max-width: 767px) {
       .plantShow {
         height: auto;
