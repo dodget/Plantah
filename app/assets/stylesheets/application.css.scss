@@ -11,14 +11,8 @@ $red: #d17d54;
 $light_red: #e8bea9;
 $pink: #e3c4a4;
 
-body{
-  //background-color: $light_red;
-}
-
 .jumbotron{
   position: relative;
-  //background: image-url('bean.JPG') no-repeat center center;
-  //background-color: $blue;
   background: radial-gradient(at bottom, $blue, $green);
   background-size: cover;
   width: 100%;
@@ -43,7 +37,6 @@ body{
 }
 
 .container .plant-list {
-  //background-color: $pink;
   margin-top: 30px;
   border-radius: 7px;
 }
@@ -52,8 +45,8 @@ body{
   margin: 20px;
   background-color: $blue;
   border-radius: 5px;
-  //border-color: $pink;
 }
+
 
 .list-group-item a {
   padding: 25px;
